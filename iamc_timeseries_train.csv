@@ -1,0 +1,402 @@
+run_id,model,scenario,region,variable,unit,year,value
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2005,6345.84
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2010,5819.76
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2015,5300.37
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2020,4559.94
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2025,5172.16
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2030,3941.15
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2035,2908.23
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2040,1968.64
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2045,1495.11
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2050,1204.07
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2055,1105.92
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2060,934.9
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2065,953.448
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2070,938.72
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2075,943.218
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2080,897.301
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2085,942.743
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2090,888.081
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2095,868.001
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,Mt CO2/yr,2100,875.78
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2005,69.4337
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2010,65.3134
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2015,64.8062
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2020,61.5432
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2025,69.2863
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2030,60.5448
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2035,58.0843
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2040,56.5211
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2045,55.2631
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2050,54.6759
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2055,55.9193
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2060,57.1515
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2065,58.3033
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2070,59.3154
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2075,60.4464
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2080,60.9144
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2085,61.122
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2090,61.0894
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2095,61.0388
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,EJ/yr,2100,60.7399
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2005,13558.2
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2010,14244.8
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2015,15835.9
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2020,16861.7
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2025,19233.5
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2030,21163.8
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2035,23216.3
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2040,25371
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2045,27508.8
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2050,29485.3
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2055,31349.1
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2060,33181.3
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2065,35021.1
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2070,36825.1
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2075,38583
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2080,40278.5
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2085,41886
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2090,43370.7
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2095,44683.9
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,GDP_MER,billion USD_2010/yr,2100,45712.4
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2005,296.82
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2010,310.692
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2015,322.154
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2020,332.974
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2025,339.508
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2030,347.336
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2035,354.835
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2040,361.851
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2045,368.323
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2050,374.244
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2055,378.889
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2060,382.671
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2065,385.795
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2070,388.574
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2075,390.905
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2080,392.366
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2085,392.451
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2090,390.821
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2095,387.397
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Pop,million,2100,381.51
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2005,9.12926
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2010,8.97391
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2015,8.99391
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2020,8.39596
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2025,9.27606
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2030,8.94137
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2035,8.75378
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2040,7.77379
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2045,7.25899
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2050,7.17113
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2055,7.21051
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2060,7.26892
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2065,7.59125
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2070,8.17908
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2075,8.57466
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2080,8.82949
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2085,9.23723
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2090,9.65625
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2095,10.1852
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Prm_Ene_Oil,USD_2010/GJ,2100,10.6693
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2005,27.7335
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2010,32.4981
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2015,32.916
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2020,33.0374
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2025,32.5914
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2030,30.7742
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2035,27.8686
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2040,25.4871
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2045,23.8713
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2050,22.8726
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2055,22.5437
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2060,22.4307
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2065,22.3542
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2070,22.2181
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2075,21.9881
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2080,21.8944
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2085,21.8206
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2090,21.761
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2095,21.4582
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Sec_Ene_Ele,USD_2010/GJ,2100,21.2567
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2005,90.6299
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2010,90.1586
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2015,86.5693
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2020,80.0079
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2025,89.8602
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2030,74.0889
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2035,66.6531
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2040,66.0063
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2045,65.1323
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2050,63.8708
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2055,65.9533
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2060,67.9583
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2065,69.364
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2070,69.5271
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2075,71.1063
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2080,71.6833
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2085,71.9234
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2090,71.8631
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2095,71.7751
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene,EJ/yr,2100,71.5052
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2005,3.16815
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2010,6.09124
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2015,6.27372
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2020,6.09839
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2025,6.60846
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2030,5.13848
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2035,4.30498
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2040,5.92589
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2045,5.38644
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2050,4.24644
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2055,4.48682
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2060,5.72748
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2065,6.28528
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2070,4.22893
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2075,4.21839
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2080,4.20814
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2085,4.19966
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2090,4.18486
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2095,4.17251
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Bio,EJ/yr,2100,4.17118
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2005,23.3392
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2010,21.6703
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2015,15.3445
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2020,9.06793
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2025,11.7749
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2030,10.1135
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2035,6.98779
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2040,4.09906
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2045,3.7473
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2050,3.37098
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2055,2.82007
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2060,2.73103
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2065,2.7317
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2070,2.68999
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2075,2.76151
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2080,2.75322
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2085,2.73043
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2090,2.67337
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2095,2.62779
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Coa,EJ/yr,2100,2.81537
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2005,83.3807
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2010,79.6342
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2015,75.3709
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2020,67.9233
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2025,75.6543
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2030,56.0938
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2035,43.1686
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2040,31.2727
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2045,23.8658
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2050,18.87
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2055,16.595
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2060,14.8376
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2065,14.4363
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2070,15.5201
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2075,15.515
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2080,14.9094
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2085,14.21
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2090,13.5024
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2095,13.2158
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos,EJ/yr,2100,13.03
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2005,83.3807
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2010,79.6342
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2015,75.3709
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2020,67.9233
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2025,75.6543
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2030,56.0938
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2035,43.1686
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2040,31.2727
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2045,23.8658
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2050,18.87
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2055,16.595
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2060,14.8376
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2065,14.4363
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2070,15.5201
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2075,15.515
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2080,14.9094
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2085,14.21
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2090,13.5024
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2095,13.2158
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Fos_wo_CCS,EJ/yr,2100,13.03
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2005,21.2016
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2010,22.0057
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2015,25.0093
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2020,27.6698
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2025,26.838
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2030,18.935
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2035,12.819
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2040,10.8995
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2045,7.56793
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2050,4.6345
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2055,3.733
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2060,2.97654
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2065,2.90674
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2070,2.93543
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2075,2.81497
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2080,2.74848
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2085,2.68332
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2090,2.63546
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2095,2.57905
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Gas,EJ/yr,2100,2.32449
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2005,1.04533
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2010,1.40666
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2015,1.88605
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2020,2.91109
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2025,4.3139
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2030,9.98875
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2035,16.301
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2040,26.0697
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2045,33.1797
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2050,38.0751
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2055,42.241
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2060,44.7958
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2065,46.0532
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2070,47.1943
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2075,48.7907
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2080,49.9849
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2085,50.9362
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2090,51.6288
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2095,52.5004
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_NonBioRen,EJ/yr,2100,52.8647
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2005,2.94331
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2010,2.92873
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2015,2.93561
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2020,2.97001
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2025,3.15735
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2030,2.89068
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2035,2.90718
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2040,2.77846
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2045,2.74767
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2050,2.72339
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2055,2.67386
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2060,2.64049
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2065,2.63515
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2070,2.63408
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2075,2.63462
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2080,2.63341
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2085,2.6322
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2090,2.60357
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2095,1.94683
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Nuc,EJ/yr,2100,1.50082
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2005,38.8398
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2010,35.9582
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2015,35.0171
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2020,31.1855
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2025,37.0414
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2030,27.0454
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2035,23.3618
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2040,16.2742
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2045,12.5506
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2050,10.8645
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2055,10.042
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2060,9.12998
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2065,8.79791
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2070,9.89466
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2075,9.93849
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2080,9.40772
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2085,8.79627
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2090,8.19354
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2095,8.00892
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oil,EJ/yr,2100,7.89014
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2010,0.00463037
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2015,0.0195098
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2020,0.0175571
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2025,0.017309
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2030,0.0188075
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2035,0.0215759
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2040,0.0305931
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2045,0.0376074
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2050,0.0420474
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2055,0.0457363
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2060,0.0480299
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2065,0.0492928
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2070,0.0504368
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2075,0.0518987
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2080,0.0530897
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2085,0.0540472
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2090,0.0547376
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2095,0.0549729
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prm_Ene_Oth,EJ/yr,2100,0.0548815
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2005,15.4208
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2010,15.6191
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2015,15.4635
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2020,15.6224
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2025,17.7822
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2030,18.6032
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2035,21.3735
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2040,30.4842
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2045,37.4419
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2050,41.9207
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2055,45.6435
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2060,48.0491
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2065,49.3528
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2070,50.4982
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2075,51.9746
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2080,53.1763
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2085,54.1407
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2090,54.8351
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2095,55.0727
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele,EJ/yr,2100,54.9811
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2005,0.271189
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2010,0.286921
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2015,0.352915
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2020,0.33011
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2025,0.319036
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2030,0.590686
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2035,0.591613
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2040,0.575202
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2045,0.551444
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2050,0.515657
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2055,0.462778
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2060,0.459695
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2065,0.473936
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2070,0.471574
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2075,0.471974
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2080,0.471631
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2085,0.464558
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2090,0.459495
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2095,0.458336
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Bio,EJ/yr,2100,0.458126
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2005,7.19224
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2010,7.11286
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2015,5.19263
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2020,3.07092
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2025,4.37404
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2030,2.7165
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2035,1.18555
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2040,0.150931
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2045,0.183831
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2050,0.198673
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2055,0.207839
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2060,0.19733
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2065,0.192432
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2070,0.199055
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2075,0.202939
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2080,0.208645
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2085,0.213381
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2090,0.21702
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2095,0.21865
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Coa,EJ/yr,2100,0.21903
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2005,3.27762
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2010,3.7655
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2015,5.04321
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2020,6.30301
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2025,5.14362
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2030,2.32475
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2035,0.283446
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2040,0.968562
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2045,0.813442
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2050,0.240729
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2055,0.0576325
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2060,0.000960478
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2065,0.000542726
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2070,0.000606798
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2075,0.000518987
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2080,0.000530897
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2085,0.000540472
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2090,0.000547376
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2095,0.000549729
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_Gas,EJ/yr,2100,0.000548815
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_NonBioRen,EJ/yr,2005,1.1142
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Sec_Ene_Ele_NonBioRen,EJ/yr,2010,1.32704
