@@ -1,10 +1,4 @@
 ﻿run_id,model,scenario,region,variable,flag,issue_type,severity,reason_text,reviewer,reviewed_at,evidence_ref,notes_private
 2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Emi_CO2_Ene_and_Ind_Pro,red,discontinuity_or_jump,5,2035以降で排出量が急激に減少。技術導入速度が非現実的。,rev01,2026/1/20,fig2,
-2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Price_Carbon,yellow,implausible_cost_or_price,3,2030年代前半の炭素価格がやや高め。要確認。,rev02,2026/1/20,,
-2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Final_Energy,green,other,1,全体として妥当。,rev01,2026/1/20,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
-,,,,,,,,,,,,
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Prc_Car,yellow,implausible_cost_or_price,3,2030年代前半の炭素価格がやや高め。要確認。,rev02,2026/1/20,,
+2026.1.20,AIMHub,SSP1 - Medium Emissions,USA,Fin_Ene,green,other,1,全体として妥当。,rev01,2026/1/20,,

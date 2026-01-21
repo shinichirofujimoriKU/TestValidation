@@ -136,12 +136,16 @@ features_score_all <- make_features(iamc_score)
 
 
 train_df <- features_train_all %>%
-  inner_join(
-    flags %>% select(run_id, scenario, region, variable, flag),
+  left_join(
+    flags_raw %>% select(run_id, scenario, region, variable, flag),
     by = c("run_id", "scenario", "region", "variable")
   ) %>%
-  # remove rows with too few years
-  filter(!is.na(flag), n_years >= 3)
+  mutate(
+    flag = ifelse(is.na(flag), "green", as.character(flag)),
+    flag = factor(flag, levels = FLAG_LEVELS)
+  ) %>%
+  filter(n_years >= 3)
+
 
 # Save features snapshot (optional)
 write_csv(train_df, OUT_FEATURES_CSV)
