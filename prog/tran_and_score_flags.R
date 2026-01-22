@@ -35,6 +35,7 @@ USE_PARALLEL <- TRUE
 N_CORES <- max(1, parallel::detectCores(logical = FALSE) - 1)
 USE_DATATABLE <- TRUE
 DT_THREADS <- N_CORES
+DT_PARALLEL_SPLIT <- TRUE
 
 args <- commandArgs(trailingOnly = TRUE)
 arg_kv <- strsplit(args, "=", fixed = TRUE)
@@ -137,60 +138,94 @@ make_features <- function(iamc_df) {
     dt <- as.data.table(df)
     setkey(dt, run_id, model, scenario, region, variable, unit, year)
 
-    feats <- dt[, {
-      yy <- year[order(year)]
-      vv <- value[order(year)]
-      n <- length(vv)
+    compute_dt_feats <- function(dt_part) {
+      dt_part[, {
+        yy <- year[order(year)]
+        vv <- value[order(year)]
+        n <- length(vv)
 
-      first_val <- vv[which.min(yy)]
-      last_val  <- vv[which.max(yy)]
-      min_val   <- min(vv, na.rm = TRUE)
-      max_val   <- max(vv, na.rm = TRUE)
-      mean_val  <- mean(vv, na.rm = TRUE)
-      sd_val    <- sd(vv, na.rm = TRUE)
+        first_val <- vv[which.min(yy)]
+        last_val  <- vv[which.max(yy)]
+        min_val   <- min(vv, na.rm = TRUE)
+        max_val   <- max(vv, na.rm = TRUE)
+        mean_val  <- mean(vv, na.rm = TRUE)
+        sd_val    <- sd(vv, na.rm = TRUE)
 
-      max_abs_step <- if (n >= 2) max(abs(diff(vv)), na.rm = TRUE) else NA_real_
-      max_rel_step <- if (n >= 2) {
-        denom <- pmax(abs(head(vv, -1)), 1e-9)
-        max(abs(diff(vv)) / denom, na.rm = TRUE)
-      } else NA_real_
+        max_abs_step <- if (n >= 2) max(abs(diff(vv)), na.rm = TRUE) else NA_real_
+        max_rel_step <- if (n >= 2) {
+          denom <- pmax(abs(head(vv, -1)), 1e-9)
+          max(abs(diff(vv)) / denom, na.rm = TRUE)
+        } else NA_real_
 
-      mean_log_growth <- if (n >= 2) {
-        vv2 <- ifelse(vv <= 0, NA_real_, vv)
-        lg <- diff(log(vv2))
-        mean(lg, na.rm = TRUE)
-      } else NA_real_
+        mean_log_growth <- if (n >= 2) {
+          vv2 <- ifelse(vv <= 0, NA_real_, vv)
+          lg <- diff(log(vv2))
+          mean(lg, na.rm = TRUE)
+        } else NA_real_
 
-      max_log_growth <- if (n >= 2) {
-        vv2 <- ifelse(vv <= 0, NA_real_, vv)
-        lg <- diff(log(vv2))
-        suppressWarnings(max(lg, na.rm = TRUE))
-      } else NA_real_
+        max_log_growth <- if (n >= 2) {
+          vv2 <- ifelse(vv <= 0, NA_real_, vv)
+          lg <- diff(log(vv2))
+          suppressWarnings(max(lg, na.rm = TRUE))
+        } else NA_real_
 
-      slope <- if (n >= 3) {
-        tryCatch(coef(lm(vv ~ yy))[["yy"]], error = function(e) NA_real_)
-      } else NA_real_
+        slope <- if (n >= 3) {
+          tryCatch(coef(lm(vv ~ yy))[["yy"]], error = function(e) NA_real_)
+        } else NA_real_
 
-      mean_abs_2nd_diff <- if (n >= 3) mean(abs(diff(vv, differences = 2)), na.rm = TRUE) else NA_real_
+        mean_abs_2nd_diff <- if (n >= 3) mean(abs(diff(vv, differences = 2)), na.rm = TRUE) else NA_real_
 
-      .(
-        n_years = n,
-        first_year = min(yy),
-        last_year  = max(yy),
-        first_val = first_val,
-        last_val = last_val,
-        min_val = min_val,
-        max_val = max_val,
-        mean_val = mean_val,
-        sd_val = sd_val,
-        max_abs_step = max_abs_step,
-        max_rel_step = max_rel_step,
-        mean_log_growth = mean_log_growth,
-        max_log_growth = max_log_growth,
-        slope = slope,
-        mean_abs_2nd_diff = mean_abs_2nd_diff
+        .(
+          n_years = n,
+          first_year = min(yy),
+          last_year  = max(yy),
+          first_val = first_val,
+          last_val = last_val,
+          min_val = min_val,
+          max_val = max_val,
+          mean_val = mean_val,
+          sd_val = sd_val,
+          max_abs_step = max_abs_step,
+          max_rel_step = max_rel_step,
+          mean_log_growth = mean_log_growth,
+          max_log_growth = max_log_growth,
+          slope = slope,
+          mean_abs_2nd_diff = mean_abs_2nd_diff
+        )
+      }, by = .(run_id, model, scenario, region, variable, unit)]
+    }
+
+    if (DT_PARALLEL_SPLIT && USE_PARALLEL && N_CORES > 1) {
+      max_size <- getOption("future.globals.maxSize", 500 * 1024^2)
+      dt_size <- as.numeric(object.size(dt))
+      if (dt_size > max_size) {
+        cat("DT_PARALLEL_SPLIT disabled: dt size", round(dt_size / 1024^2, 2),
+            "MiB exceeds future.globals.maxSize", round(max_size / 1024^2, 2), "MiB\n")
+        feats <- compute_dt_feats(dt)
+      } else {
+      old_plan <- future::plan()
+      on.exit(future::plan(old_plan), add = TRUE)
+      future::plan(future::multisession, workers = N_CORES)
+
+      keys <- unique(dt[, .(run_id, model, scenario, region, variable, unit)])
+      n_chunks <- min(N_CORES, nrow(keys))
+      chunk_id <- rep(seq_len(n_chunks), length.out = nrow(keys))
+      key_chunks <- split(keys, chunk_id)
+
+      feats_list <- furrr::future_map(
+        key_chunks,
+        function(k) {
+          data.table::setDTthreads(1)
+          dt_part <- dt[k, on = .(run_id, model, scenario, region, variable, unit)]
+          compute_dt_feats(dt_part)
+        },
+        .options = furrr::furrr_options(seed = TRUE)
       )
-    }, by = .(run_id, model, scenario, region, variable, unit)]
+      feats <- data.table::rbindlist(feats_list, use.names = TRUE)
+      }
+    } else {
+      feats <- compute_dt_feats(dt)
+    }
   } else if (USE_PARALLEL && N_CORES > 1) {
     old_plan <- future::plan()
     on.exit(future::plan(old_plan), add = TRUE)
