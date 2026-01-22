@@ -5,8 +5,6 @@ suppressPackageStartupMessages({
   library(readxl)
   library(stringr)
   library(purrr)
-  library(future)
-  library(furrr)
   library(data.table)
   library(nnet)
   library(lubridate)
@@ -35,7 +33,7 @@ USE_PARALLEL <- TRUE
 N_CORES <- max(1, parallel::detectCores(logical = FALSE) - 1)
 USE_DATATABLE <- TRUE
 DT_THREADS <- N_CORES
-DT_PARALLEL_SPLIT <- TRUE
+MODEL_TYPE <- "rf"  # "rf" or "nn"
 
 args <- commandArgs(trailingOnly = TRUE)
 arg_kv <- strsplit(args, "=", fixed = TRUE)
@@ -59,8 +57,11 @@ if ("MODEL_TYPE" %in% names(arg_map) && nzchar(arg_map[["MODEL_TYPE"]])) {
   }
 }
 
-MODEL_TYPE <- "rf"  # "rf" or "nn"
-MODEL_TYPE <- "nn"
+if (USE_DATATABLE) {
+  data.table::setDTthreads(DT_THREADS)
+  cat("data.table threads:", data.table::getDTthreads(), "\n")
+}
+
 
 NN_HIDDEN <- 16
 NN_DECAY  <- 1e-4
@@ -94,190 +95,69 @@ make_features <- function(iamc_df) {
     ) %>%
     filter(!is.na(value), year >= YEAR_MIN, year <= YEAR_MAX)
 
-  compute_one <- function(d) {
-    d <- d %>% arrange(year)
-    tibble(
-      n_years = nrow(d),
-      first_year = min(d$year),
-      last_year  = max(d$year),
-      first_val  = d$value[which.min(d$year)],
-      last_val   = d$value[which.max(d$year)],
-      min_val    = min(d$value, na.rm = TRUE),
-      max_val    = max(d$value, na.rm = TRUE),
-      mean_val   = mean(d$value, na.rm = TRUE),
-      sd_val     = sd(d$value, na.rm = TRUE),
+  data.table::setDTthreads(DT_THREADS)
+  dt <- as.data.table(df)
+  setkey(dt, run_id, model, scenario, region, variable, unit, year)
 
-      max_abs_step = if (nrow(d) >= 2) max(abs(diff(d$value)), na.rm = TRUE) else NA_real_,
-      max_rel_step = if (nrow(d) >= 2) {
-        denom <- pmax(abs(head(d$value, -1)), 1e-9)
-        max(abs(diff(d$value)) / denom, na.rm = TRUE)
-      } else NA_real_,
+  compute_dt_feats <- function(dt_part) {
+    dt_part[, {
+      yy <- year[order(year)]
+      vv <- value[order(year)]
+      n <- length(vv)
 
-      mean_log_growth = if (nrow(d) >= 2) {
-        vv <- ifelse(d$value <= 0, NA_real_, d$value)
-        lg <- diff(log(vv))
+      first_val <- vv[which.min(yy)]
+      last_val  <- vv[which.max(yy)]
+      min_val   <- min(vv, na.rm = TRUE)
+      max_val   <- max(vv, na.rm = TRUE)
+      mean_val  <- mean(vv, na.rm = TRUE)
+      sd_val    <- sd(vv, na.rm = TRUE)
+
+      max_abs_step <- if (n >= 2) max(abs(diff(vv)), na.rm = TRUE) else NA_real_
+      max_rel_step <- if (n >= 2) {
+        denom <- pmax(abs(head(vv, -1)), 1e-9)
+        max(abs(diff(vv)) / denom, na.rm = TRUE)
+      } else NA_real_
+
+      mean_log_growth <- if (n >= 2) {
+        vv2 <- ifelse(vv <= 0, NA_real_, vv)
+        lg <- diff(log(vv2))
         mean(lg, na.rm = TRUE)
-      } else NA_real_,
+      } else NA_real_
 
-      max_log_growth = if (nrow(d) >= 2) {
-        vv <- ifelse(d$value <= 0, NA_real_, d$value)
-        lg <- diff(log(vv))
+      max_log_growth <- if (n >= 2) {
+        vv2 <- ifelse(vv <= 0, NA_real_, vv)
+        lg <- diff(log(vv2))
         suppressWarnings(max(lg, na.rm = TRUE))
-      } else NA_real_,
+      } else NA_real_
 
-      slope = if (nrow(d) >= 3) {
-        tryCatch(coef(lm(value ~ year, data = d))[["year"]], error = function(e) NA_real_)
-      } else NA_real_,
+      slope <- if (n >= 3) {
+        tryCatch(coef(lm(vv ~ yy))[["yy"]], error = function(e) NA_real_)
+      } else NA_real_
 
-      mean_abs_2nd_diff = if (nrow(d) >= 3) mean(abs(diff(d$value, differences = 2)), na.rm = TRUE) else NA_real_
-    )
+      mean_abs_2nd_diff <- if (n >= 3) mean(abs(diff(vv, differences = 2)), na.rm = TRUE) else NA_real_
+
+      .(
+        n_years = n,
+        first_year = min(yy),
+        last_year  = max(yy),
+        first_val = first_val,
+        last_val = last_val,
+        min_val = min_val,
+        max_val = max_val,
+        mean_val = mean_val,
+        sd_val = sd_val,
+        max_abs_step = max_abs_step,
+        max_rel_step = max_rel_step,
+        mean_log_growth = mean_log_growth,
+        max_log_growth = max_log_growth,
+        slope = slope,
+        mean_abs_2nd_diff = mean_abs_2nd_diff
+      )
+    }, by = .(run_id, model, scenario, region, variable, unit)]
   }
 
-  if (USE_DATATABLE) {
-    data.table::setDTthreads(DT_THREADS)
-    dt <- as.data.table(df)
-    setkey(dt, run_id, model, scenario, region, variable, unit, year)
-
-    compute_dt_feats <- function(dt_part) {
-      dt_part[, {
-        yy <- year[order(year)]
-        vv <- value[order(year)]
-        n <- length(vv)
-
-        first_val <- vv[which.min(yy)]
-        last_val  <- vv[which.max(yy)]
-        min_val   <- min(vv, na.rm = TRUE)
-        max_val   <- max(vv, na.rm = TRUE)
-        mean_val  <- mean(vv, na.rm = TRUE)
-        sd_val    <- sd(vv, na.rm = TRUE)
-
-        max_abs_step <- if (n >= 2) max(abs(diff(vv)), na.rm = TRUE) else NA_real_
-        max_rel_step <- if (n >= 2) {
-          denom <- pmax(abs(head(vv, -1)), 1e-9)
-          max(abs(diff(vv)) / denom, na.rm = TRUE)
-        } else NA_real_
-
-        mean_log_growth <- if (n >= 2) {
-          vv2 <- ifelse(vv <= 0, NA_real_, vv)
-          lg <- diff(log(vv2))
-          mean(lg, na.rm = TRUE)
-        } else NA_real_
-
-        max_log_growth <- if (n >= 2) {
-          vv2 <- ifelse(vv <= 0, NA_real_, vv)
-          lg <- diff(log(vv2))
-          suppressWarnings(max(lg, na.rm = TRUE))
-        } else NA_real_
-
-        slope <- if (n >= 3) {
-          tryCatch(coef(lm(vv ~ yy))[["yy"]], error = function(e) NA_real_)
-        } else NA_real_
-
-        mean_abs_2nd_diff <- if (n >= 3) mean(abs(diff(vv, differences = 2)), na.rm = TRUE) else NA_real_
-
-        .(
-          n_years = n,
-          first_year = min(yy),
-          last_year  = max(yy),
-          first_val = first_val,
-          last_val = last_val,
-          min_val = min_val,
-          max_val = max_val,
-          mean_val = mean_val,
-          sd_val = sd_val,
-          max_abs_step = max_abs_step,
-          max_rel_step = max_rel_step,
-          mean_log_growth = mean_log_growth,
-          max_log_growth = max_log_growth,
-          slope = slope,
-          mean_abs_2nd_diff = mean_abs_2nd_diff
-        )
-      }, by = .(run_id, model, scenario, region, variable, unit)]
-    }
-
-    if (DT_PARALLEL_SPLIT && USE_PARALLEL && N_CORES > 1) {
-      max_size <- getOption("future.globals.maxSize", 500 * 1024^2)
-      dt_size <- as.numeric(object.size(dt))
-      if (dt_size > max_size) {
-        cat("DT_PARALLEL_SPLIT disabled: dt size", round(dt_size / 1024^2, 2),
-            "MiB exceeds future.globals.maxSize", round(max_size / 1024^2, 2), "MiB\n")
-        feats <- compute_dt_feats(dt)
-      } else {
-      old_plan <- future::plan()
-      on.exit(future::plan(old_plan), add = TRUE)
-      future::plan(future::multisession, workers = N_CORES)
-
-      keys <- unique(dt[, .(run_id, model, scenario, region, variable, unit)])
-      n_chunks <- min(N_CORES, nrow(keys))
-      chunk_id <- rep(seq_len(n_chunks), length.out = nrow(keys))
-      key_chunks <- split(keys, chunk_id)
-
-      feats_list <- furrr::future_map(
-        key_chunks,
-        function(k) {
-          data.table::setDTthreads(1)
-          dt_part <- dt[k, on = .(run_id, model, scenario, region, variable, unit)]
-          compute_dt_feats(dt_part)
-        },
-        .options = furrr::furrr_options(seed = TRUE)
-      )
-      feats <- data.table::rbindlist(feats_list, use.names = TRUE)
-      }
-    } else {
-      feats <- compute_dt_feats(dt)
-    }
-  } else if (USE_PARALLEL && N_CORES > 1) {
-    old_plan <- future::plan()
-    on.exit(future::plan(old_plan), add = TRUE)
-    future::plan(future::multisession, workers = N_CORES)
-
-    grouped <- df %>% group_by(run_id, model, scenario, region, variable, unit)
-    keys_df <- group_keys(grouped)
-    groups <- group_split(grouped)
-    feats <- furrr::future_map(groups, compute_one, .options = furrr::furrr_options(seed = TRUE)) %>%
-      bind_rows() %>%
-      bind_cols(keys_df)
-  } else {
-    feats <- df %>%
-      group_by(run_id, model, scenario, region, variable, unit) %>%
-      arrange(year, .by_group = TRUE) %>%
-      summarise(
-        n_years = n(),
-        first_year = min(year),
-        last_year  = max(year),
-        first_val  = value[which.min(year)],
-        last_val   = value[which.max(year)],
-        min_val    = min(value, na.rm = TRUE),
-        max_val    = max(value, na.rm = TRUE),
-        mean_val   = mean(value, na.rm = TRUE),
-        sd_val     = sd(value, na.rm = TRUE),
-
-        max_abs_step = if (n() >= 2) max(abs(diff(value)), na.rm = TRUE) else NA_real_,
-        max_rel_step = if (n() >= 2) {
-          denom <- pmax(abs(head(value, -1)), 1e-9)
-          max(abs(diff(value)) / denom, na.rm = TRUE)
-        } else NA_real_,
-
-        mean_log_growth = if (n() >= 2) {
-          vv <- ifelse(value <= 0, NA_real_, value)
-          lg <- diff(log(vv))
-          mean(lg, na.rm = TRUE)
-        } else NA_real_,
-
-        max_log_growth = if (n() >= 2) {
-          vv <- ifelse(value <= 0, NA_real_, value)
-          lg <- diff(log(vv))
-          suppressWarnings(max(lg, na.rm = TRUE))
-        } else NA_real_,
-
-        slope = if (n() >= 3) {
-          tryCatch(coef(lm(value ~ year))[["year"]], error = function(e) NA_real_)
-        } else NA_real_,
-
-        mean_abs_2nd_diff = if (n() >= 3) mean(abs(diff(value, differences = 2)), na.rm = TRUE) else NA_real_,
-        .groups = "drop"
-      )
-  }
+  feats <- compute_dt_feats(dt)
+  
 
   feats <- feats %>%
     mutate(
