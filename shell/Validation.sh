@@ -27,7 +27,10 @@ done
 
 read -p "${NCPU}"
 cd ../prog
-R --vanilla --slave -f tran_and_score_flags.R --args
-MODEL_TYPE=${ModelT}
-N_CORES=${NCPU}
+if [ "$train" = "on" ]; then
+  R --vanilla --slave -f train_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
+fi
+if [ "$score" = "on" ]; then
+  R --vanilla --slave -f score_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
+fi
 

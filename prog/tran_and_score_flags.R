@@ -5,6 +5,8 @@ suppressPackageStartupMessages({
   library(readxl)
   library(stringr)
   library(purrr)
+  library(future)
+  library(furrr)
   library(data.table)
   library(nnet)
   library(lubridate)
@@ -34,6 +36,11 @@ N_CORES <- max(1, parallel::detectCores(logical = FALSE) - 1)
 USE_DATATABLE <- TRUE
 DT_THREADS <- N_CORES
 MODEL_TYPE <- "rf"  # "rf" or "nn"
+SLOPE_PARALLEL <- TRUE
+
+if (.Platform$OS.type == "windows") {
+  SLOPE_PARALLEL <- FALSE
+}
 
 args <- commandArgs(trailingOnly = TRUE)
 arg_kv <- strsplit(args, "=", fixed = TRUE)
@@ -130,10 +137,6 @@ make_features <- function(iamc_df) {
         suppressWarnings(max(lg, na.rm = TRUE))
       } else NA_real_
 
-      slope <- if (n >= 3) {
-        tryCatch(coef(lm(vv ~ yy))[["yy"]], error = function(e) NA_real_)
-      } else NA_real_
-
       mean_abs_2nd_diff <- if (n >= 3) mean(abs(diff(vv, differences = 2)), na.rm = TRUE) else NA_real_
 
       .(
@@ -150,15 +153,36 @@ make_features <- function(iamc_df) {
         max_rel_step = max_rel_step,
         mean_log_growth = mean_log_growth,
         max_log_growth = max_log_growth,
-        slope = slope,
         mean_abs_2nd_diff = mean_abs_2nd_diff
       )
     }, by = .(run_id, model, scenario, region, variable, unit)]
   }
 
   feats <- compute_dt_feats(dt)
+  print("slope cal")
   
+  slope_summary <- dt[, .(
+    n = .N,
+    sum_x = sum(year),
+    sum_y = sum(value),
+    sum_xy = sum(year * value),
+    sum_x2 = sum(year * year)
+  ), by = .(run_id, model, scenario, region, variable, unit)]
 
+  print("slope calc")
+  slope_dt <- as.data.table(slope_summary)
+  slope_dt[, denom := n * sum_x2 - sum_x^2]
+  slope_dt[, slope := ifelse(n >= 3 & denom != 0, (n * sum_xy - sum_x * sum_y) / denom, NA_real_)]
+  slope_dt[, denom := NULL]
+
+  print("slope para join")
+  feats <- feats %>%
+    left_join(
+      slope_dt %>% select(run_id, model, scenario, region, variable, unit, slope),
+      by = c("run_id", "model", "scenario", "region", "variable", "unit")
+    )
+  
+  
   feats <- feats %>%
     mutate(
       range_val = max_val - min_val,
@@ -440,3 +464,4 @@ if (MODEL_TYPE == "rf") {
 } else {
   cat("(NN model: feature importance not available)\n")
 }
+
