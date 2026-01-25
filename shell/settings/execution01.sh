@@ -1,6 +1,8 @@
 
 train=off
-score=on
+score=off
+
+allrun=on
 
 ModelT=nn
 NCPU=32

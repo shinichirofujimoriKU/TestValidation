@@ -25,14 +25,14 @@ if (MODEL_TYPE == "") {
   }
 }
 
-train_cols_df <- read_csv(OUT_TRAIN_CSV, n_max = 0, show_col_types = FALSE)
+train_cols_df <- read_csv(paste0(Datadir, OUT_TRAIN_CSV), n_max = 0, show_col_types = FALSE)
 id_cols <- c("run_id","model","scenario","region","variable","unit","flag","label_source","case_weight")
 x_cols  <- setdiff(names(train_cols_df), id_cols)
 
 # -----------------------------
 # Load data
 # -----------------------------
-iamc_score <- read_iamc(IAMC_FILE_SCORE) %>% normalize_iamc()
+iamc_score <- read_iamc(paste0(Datadir,"Score/", IAMC_FILE_SCORE)) %>% normalize_iamc()
 
 # -----------------------------
 # Build features
@@ -59,11 +59,18 @@ if (MODEL_TYPE == "rf") {
   }
   x_score <- make_design_matrix(features_score_all[cc_score, ], x_cols)
   x_score <- align_design_matrix(x_train_cols, x_score)
+  finite_idx <- apply(x_score, 1, function(r) all(is.finite(r)))
+  if (sum(!finite_idx) > 0) {
+    cat("NN scoring: dropping", sum(!finite_idx), "rows with NA/NaN/Inf in features\n")
+  }
+  x_score <- x_score[finite_idx, , drop = FALSE]
   probs_cc <- predict(fit, x_score, type = "raw")
   colnames(probs_cc) <- attr(fit, "class_levels")
   probs <- matrix(NA_real_, nrow = nrow(features_score_all), ncol = ncol(probs_cc))
   colnames(probs) <- colnames(probs_cc)
-  probs[cc_score, ] <- probs_cc
+  cc_idx <- which(cc_score)
+  cc_idx <- cc_idx[finite_idx]
+  probs[cc_idx, ] <- probs_cc
 }
 
 p_green  <- get_prob(probs, "green")

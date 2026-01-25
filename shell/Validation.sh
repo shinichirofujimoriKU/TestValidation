@@ -25,7 +25,7 @@ for j in ${listmkdir}; do
   mkdir -m 777 -p ../${j} 2>/dev/null
 done
 
-read -p "${NCPU}"
+echo "Core number is ${NCPU}"
 cd ../prog
 if [ "$train" = "on" ]; then
   R --vanilla --slave -f train_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
@@ -34,3 +34,6 @@ if [ "$score" = "on" ]; then
   R --vanilla --slave -f score_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
 fi
 
+if [ "$allrun" = "on" ]; then
+  R --vanilla --slave -f tran_and_score_flags2.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
+fi

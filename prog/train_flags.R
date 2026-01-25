@@ -78,6 +78,12 @@ if (MODEL_TYPE == "rf") {
   }
   train_df_nn <- train_df[cc_idx, ]
   x_train <- make_design_matrix(train_df_nn, x_cols)
+  finite_idx <- apply(x_train, 1, function(r) all(is.finite(r)))
+  if (sum(!finite_idx) > 0) {
+    cat("NN training: dropping", sum(!finite_idx), "rows with NA/NaN/Inf in features\n")
+  }
+  x_train <- x_train[finite_idx, , drop = FALSE]
+  train_df_nn <- train_df_nn[finite_idx, ]
   y_train <- train_df_nn$flag
   y_mat <- nnet::class.ind(y_train)
   w <- train_df_nn$case_weight * unname(CLASS_WEIGHTS[as.character(y_train)])
