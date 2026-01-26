@@ -4,6 +4,7 @@ score=off
 
 allrun=on
 
-ModelT=nn
+ModelT=rnn #rnn nn rf
+
 NCPU=32
 
