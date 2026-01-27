@@ -54,29 +54,7 @@ if (.Platform$OS.type == "windows") {
   SLOPE_PARALLEL <- FALSE
 }
 
-NN_HIDDEN <- 16
-NN_DECAY  <- 1e-4
-NN_MAXIT  <- 300
-
-RNN_UNITS <- 32
-RNN_EPOCHS <- 30
-RNN_BATCH_SIZE <- 64
-
 FLAG_LEVELS <- c("green", "yellow", "red")
-
-# Threshold-based decision (③)
-TH_RED    <- 0.60
-TH_YELLOW <- 0.60
-
-# Weights
-# ① implicit_green を弱く扱う（ケースウェイト）
-W_EXPERT_GREEN    <- 1.0
-W_IMPLICIT_GREEN  <- 0.01
-W_EXPERT_YELLOW   <- 2.0
-W_EXPERT_RED      <- 3.0
-
-# class.weights（クラス不均衡対策）
-CLASS_WEIGHTS <- c(green = 1, yellow = 5, red = 10)
 
 # -----------------------------
 # Args helper
@@ -128,11 +106,43 @@ apply_args <- function(arg_map) {
 arg_map <- parse_args(commandArgs(trailingOnly = TRUE))
 apply_args(arg_map)
 
+MODEL_ID <- MODEL_TYPE
 OUT_MODEL_RDS <- paste0(outputdir, "flag_classifier_", MODEL_ID,IAMC_FILE_SCORE, ".rds")
 OUT_TRAIN_CSV <- paste0(outputdir, "training_table_", MODEL_ID,IAMC_FILE_SCORE, ".csv")
 OUT_PRED_CSV  <- paste0(outputdir, "predicted_flags_", MODEL_ID,IAMC_FILE_SCORE, ".csv")
 
-MODEL_ID <- MODEL_TYPE
+print(c("MODEL_TYPE",MODEL_TYPE," RUN_TRAIN",RUN_TRAIN," RUN_SCORE",RUN_SCORE))
+
+#PARAMETER
+NN_HIDDEN <- 16
+NN_DECAY  <- 1e-4
+NN_MAXIT  <- 300
+
+RNN_UNITS <- 32
+RNN_EPOCHS <- 30
+RNN_BATCH_SIZE <- 64
+
+# Threshold-based decision ()
+  TH_RED    <- 0.3
+  TH_YELLOW <- 0.3
+
+if (MODEL_TYPE == "rnn") {
+  TH_RED    <- 0.2
+  TH_YELLOW <- 0.2
+} else if (MODEL_TYPE=="nn") {
+  TH_RED    <- 0.35
+  TH_YELLOW <- 0.35
+}
+
+# Weights
+# week assumptions on implicit_green 
+W_EXPERT_GREEN    <- 1.0
+W_IMPLICIT_GREEN  <- 0.01
+W_EXPERT_YELLOW   <- 2.0
+W_EXPERT_RED      <- 3.0
+
+# class.weights（クラス不均衡対策）
+CLASS_WEIGHTS <- c(green = 1, yellow = 5, red = 10)
 
 # -----------------------------
 # Helper: feature engineering
