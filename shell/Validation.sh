@@ -53,6 +53,7 @@ echo "Core number is ${NCPU}"
 cd ../prog
 trainf=false
 scoref=false
+allrun=false
 if [ "$train" = "on" ]; then trainf=true; fi
 if [ "$score" = "on" ]; then scoref=true; fi
 if [ "$allrun" = "on" ]; then
@@ -61,6 +62,8 @@ if [ "$allrun" = "on" ]; then
 fi
 #  R --vanilla --slave -f train_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
 #  R --vanilla --slave -f score_flags.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU}
-
-  R --vanilla --slave -f tran_and_score_flags2.R --args MODEL_TYPE=${ModelT} N_CORES=${NCPU} \
+for MT in ${ModelT}; do
+  echo "Model type is ${MT}"
+  R --vanilla --slave -f tran_and_score_flags2.R --args MODEL_TYPE=${MT} N_CORES=${NCPU} \
     RUN_TRAIN=${trainf} RUN_SCORE=${scoref}
+done

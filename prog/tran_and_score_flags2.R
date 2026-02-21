@@ -110,6 +110,7 @@ MODEL_ID <- MODEL_TYPE
 OUT_MODEL_RDS <- paste0(outputdir, "flag_classifier_", MODEL_ID,IAMC_FILE_SCORE, ".rds")
 OUT_TRAIN_CSV <- paste0(outputdir, "training_table_", MODEL_ID,IAMC_FILE_SCORE, ".csv")
 OUT_PRED_CSV  <- paste0(outputdir, "predicted_flags_", MODEL_ID,IAMC_FILE_SCORE, ".csv")
+OUT_PRED_EXT_CSV  <- paste0(outputdir, "predicted_flags_extract_", MODEL_ID,IAMC_FILE_SCORE, ".csv")
 
 print(c("MODEL_TYPE",MODEL_TYPE," RUN_TRAIN",RUN_TRAIN," RUN_SCORE",RUN_SCORE))
 
@@ -252,6 +253,30 @@ make_features <- function(iamc_df) {
       mean_abs_2nd_diff = ifelse(is.na(mean_abs_2nd_diff), 0, mean_abs_2nd_diff),
       slope = ifelse(is.na(slope), 0, slope)
     )
+
+  feats_dt <- as.data.table(feats)
+  feats_dt[, `:=`(
+    grp_mean_mean_val = mean(mean_val, na.rm = TRUE),
+    grp_sd_mean_val = sd(mean_val, na.rm = TRUE),
+    grp_mean_slope = mean(slope, na.rm = TRUE),
+    grp_sd_slope = sd(slope, na.rm = TRUE),
+    grp_mean_range = mean(range_val, na.rm = TRUE),
+    grp_sd_range = sd(range_val, na.rm = TRUE)
+  ), by = .(run_id, model, scenario, region, unit)]
+
+  feats_dt[, `:=`(
+    grp_sd_mean_val = ifelse(is.na(grp_sd_mean_val) | grp_sd_mean_val == 0, 1, grp_sd_mean_val),
+    grp_sd_slope = ifelse(is.na(grp_sd_slope) | grp_sd_slope == 0, 1, grp_sd_slope),
+    grp_sd_range = ifelse(is.na(grp_sd_range) | grp_sd_range == 0, 1, grp_sd_range)
+  )]
+
+  feats_dt[, `:=`(
+    z_mean_val = (mean_val - grp_mean_mean_val) / grp_sd_mean_val,
+    z_slope = (slope - grp_mean_slope) / grp_sd_slope,
+    z_range = (range_val - grp_mean_range) / grp_sd_range
+  )]
+
+  feats <- as_tibble(feats_dt)
 
   # ④ variable を弱い特徴量として入れる：粗いカテゴリ化
   feats %>%
@@ -405,32 +430,48 @@ build_sequences <- function(iamc_df, years = YEAR_MIN:YEAR_MAX) {
   key_cols <- c("run_id", "model", "scenario", "region", "variable", "unit")
   dt <- dt[, .(value = mean(value, na.rm = TRUE)), by = c(key_cols, "year")]
 
+  grp_cols <- c("run_id", "model", "scenario", "region", "unit", "year")
+  grp_stats <- dt[, .(
+    grp_mean = mean(value, na.rm = TRUE),
+    grp_sd = sd(value, na.rm = TRUE)
+  ), by = grp_cols]
+
   keys_dt <- unique(dt[, ..key_cols])
   full_dt <- keys_dt[, .(year = years), by = key_cols]
   full_dt <- full_dt[dt, on = c(key_cols, "year")]
+  full_dt <- full_dt[grp_stats, on = grp_cols]
 
   full_dt[, missing := is.na(value)]
   full_dt[is.na(value), value := 0]
+  full_dt[is.na(grp_mean), grp_mean := 0]
+  full_dt[is.na(grp_sd) | grp_sd == 0, grp_sd := 1]
+  full_dt[, z_value := (value - grp_mean) / grp_sd]
 
   setorder(full_dt, run_id, model, scenario, region, variable, unit, year)
   full_dt[, grp := .GRP, by = key_cols]
 
   n_groups <- nrow(keys_dt)
   timesteps <- length(years)
-  x <- array(0, dim = c(n_groups, timesteps, 2))
+  x <- array(0, dim = c(n_groups, timesteps, 4))
 
   for (g in seq_len(n_groups)) {
     sub <- full_dt[grp == g]
     idx <- match(years, sub$year)
     v <- rep(0, timesteps)
     m <- rep(1, timesteps)
+    gm <- rep(0, timesteps)
+    zv <- rep(0, timesteps)
     hit <- which(!is.na(idx))
     if (length(hit) > 0) {
       v[hit] <- sub$value[idx[hit]]
       m[hit] <- as.numeric(sub$missing[idx[hit]])
+      gm[hit] <- sub$grp_mean[idx[hit]]
+      zv[hit] <- sub$z_value[idx[hit]]
     }
     x[g, , 1] <- v
     x[g, , 2] <- m
+    x[g, , 3] <- gm
+    x[g, , 4] <- zv
   }
 
   list(x = x, keys = keys_dt, years = years)
@@ -707,6 +748,9 @@ if (RUN_SCORE) {
     probs_df <- as.data.frame(seq_score$keys)
     probs_df <- cbind(probs_df, probs)
 
+  }
+
+  if (MODEL_TYPE == "rnn") {
     pred_df <- features_score_all %>%
       left_join(probs_df, by = c("run_id", "model", "scenario", "region", "variable", "unit")) %>%
       mutate(
@@ -717,35 +761,21 @@ if (RUN_SCORE) {
         p_risky = p_red + 0.7 * p_yellow
       ) %>%
       arrange(desc(p_risky))
+  } else {  
+    p_green  <- get_prob(probs, "green")
+    p_yellow <- get_prob(probs, "yellow")
+    p_red    <- get_prob(probs, "red")
 
-    write_csv(pred_df, OUT_PRED_CSV)
-    cat("Saved predictions:", OUT_PRED_CSV, "\n")
-
-    cat("\nTop 20 risky candidates:\n")
-    print(
-      pred_df %>%
-        select(run_id, scenario, region, variable, unit, var_group, pred_flag, p_green, p_yellow, p_red, p_risky) %>%
-        head(20)
-    )
-
-    cat("\nTop 20 feature importances:\n")
-    cat("(RNN model: feature importance not available)\n")
-    quit(save = "no")
+    pred_df <- features_score_all %>%
+      mutate(
+        p_green = p_green,
+        p_yellow = p_yellow,
+        p_red = p_red,
+        pred_flag = decide_flag(p_green, p_yellow, p_red),
+        p_risky = p_red + 0.7 * p_yellow
+      ) %>%
+      arrange(desc(p_risky))
   }
-
-  p_green  <- get_prob(probs, "green")
-  p_yellow <- get_prob(probs, "yellow")
-  p_red    <- get_prob(probs, "red")
-
-  pred_df <- features_score_all %>%
-    mutate(
-      p_green = p_green,
-      p_yellow = p_yellow,
-      p_red = p_red,
-      pred_flag = decide_flag(p_green, p_yellow, p_red),
-      p_risky = p_red + 0.7 * p_yellow
-    ) %>%
-    arrange(desc(p_risky))
 
   write_csv(pred_df, OUT_PRED_CSV)
   cat("Saved predictions:", OUT_PRED_CSV, "\n")
@@ -757,11 +787,15 @@ if (RUN_SCORE) {
       head(20)
   )
 
-  cat("\nTop 20 feature importances:\n")
-  if (MODEL_TYPE == "rf") {
-    imp <- sort(fit$variable.importance, decreasing = TRUE)
-    print(head(imp, 20))
-  } else {
-    cat("(NN model: feature importance not available)\n")
-  }
+
+  R17region <- c("BRA","CHN","TUR","World","XAF","XME","XOC","XSA","XSE","XNF","JPN","USA","CAN","IND","XE25","XER","CIS","XLM")
+  pred_df_ext <- pred_df %>%
+    filter(
+      pred_flag %in% c("yellow", "red") &
+      region %in% R17region) %>% 
+      arrange(variable,region)
+
+  write_csv(pred_df_ext, OUT_PRED_EXT_CSV)
+  cat("Saved predictions:", OUT_PRED_EXT_CSV, "\n")
+
 }
